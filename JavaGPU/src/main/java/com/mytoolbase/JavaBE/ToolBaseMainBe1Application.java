@@ -11,23 +11,27 @@ import com.aparapi.internal.kernel.KernelManager;
 import com.aparapi.internal.kernel.KernelPreferences;
 import com.mytoolbase.JavaBE.gpuService.GPUService;
 
-@SpringBootApplication
-public class ToolBaseMainBe1Application implements CommandLineRunner{
+//@SpringBootApplication
+public class ToolBaseMainBe1Application {
 
-	@Autowired
-	GPUService service;
-	public static void main(String[] args) {
-	
-		SpringApplication.run(ToolBaseMainBe1Application.class, args);
-	}
-	@Override
-	public void run(String... args) throws Exception {
+	static GPUService service;
+
+	public static void main(String[] args) throws InterruptedException {
+
 		// TODO Auto-generated method stub
 		long start = System.currentTimeMillis();
-		service.gpuCalc();
-		//service.cpuMultiCalc();
-		//service.cpuCalc();
-		System.out.println(System.currentTimeMillis()-start);
+				service.size=20000;
+				service.gpuCalc();
+		// service.size=10000;
+		// service.cpuMultiCalc();
+//				service.size=1000;
+//				service.cpuCalc();
+		// service.fullScaledLoad();
+	
+		System.out.println(System.currentTimeMillis() - start);
+
 	}
+
+	
 
 }
